@@ -5,8 +5,8 @@ import "fmt"
 type iGun interface {
 	setName(name string)
 	setPower(power int)
-	getName() string
-	getPower() int
+	GetName() string
+	GetPower() int
 }
 
 type Gun struct {
@@ -22,16 +22,16 @@ func (g *Gun) setPower(power int) {
 	g.power = power
 }
 
-func (g *Gun) getName() string {
+func (g *Gun) GetName() string {
 	return g.name
 }
 
-func (g *Gun) getPower() int {
+func (g *Gun) GetPower() int {
 	return g.power
 }
 
 // this is the factory itself
-func getGun(gunType string) (iGun, error) {
+func GetGun(gunType string) (iGun, error) {
 	if gunType == "musket" {
 		return newMusket(), nil
 	}
